@@ -1,0 +1,134 @@
+﻿<UserControl
+    x:Class="FeederProject.Views.HardWorkView.RealTimeStationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:convert="clr-namespace:Infrastructure.Common;assembly=Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:FeederProject.Views.HardWorkView"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <convert:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="1"
+            Margin="5"
+            Background="White"
+            CornerRadius="5">
+            <ToolBar>
+                <TextBlock
+                    Margin="20,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Text="西门子PLC" />
+                <TextBlock
+                    Margin="20,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Text="IP:" />
+                <TextBox
+                    MinWidth="150"
+                    Cursor="Arrow"
+                    FontSize="15"
+                    Text="{Binding Ip}" />
+                <TextBlock
+                    Margin="20,0"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Text="连接状态" />
+                <materialDesign:PackIcon
+                    Width="30"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    Foreground="{Binding IsConnectPlc, Converter={StaticResource ColorToBrushConverter}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Kind="Brightness1" />
+                <Button
+                    Margin="100,0"
+                    Command="{Binding ConnectCommand}"
+                    Content="重连"
+                    FontSize="15"
+                    Style="{StaticResource BtnBase}" />
+                <Button
+                    Margin="10,0"
+                    Command="{Binding ConnectCommand}"
+                    Content="超时刷新"
+                    FontSize="15"
+                    Style="{StaticResource BtnBase}" />
+            </ToolBar>
+        </Border>
+        <Border
+            Grid.Row="2"
+            Margin="5"
+            Background="White"
+            CornerRadius="5">
+            <!--  AllowResizingColumns="False" 是否可以调整列      AllowSorting="False"是否进行排序  -->
+            <sync:SfDataGrid
+                AllowEditing="False"
+                AllowResizingColumns="False"
+                AllowSorting="False"
+                AllowTriStateSorting="True"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                ItemsSource="{Binding ObPlcEvnet}"
+                NewItemPlaceholderPosition="AtBeginning"
+                Style="{StaticResource SimpleDataGridStyle}">
+                <sync:SfDataGrid.Columns>
+                    <sync:GridTextColumn
+                        AllowFiltering="False"
+                        HeaderText="处理线程"
+                        MappingName="FName" />
+                    <sync:GridTextColumn
+                        AllowFiltering="False"
+                        HeaderText="Seq"
+                        MappingName="SeqID" />
+
+                    <sync:GridTextColumn HeaderText="载具码" MappingName="FTrayName" />
+
+                    <sync:GridTextColumn
+                        AllowFiltering="False"
+                        HeaderText="事件名称"
+                        MappingName=" FEvent" />
+                    <sync:GridDateTimeColumn
+                        AllowFiltering="False"
+                        AllowSorting="True"
+                         CustomPattern="yyyy-MM-dd HH:mm:ss"
+                        HeaderText="请求时间"
+                        MappingName=" FStartTime1" Pattern="CustomPattern" />
+                    <sync:GridTextColumn
+                        AllowFiltering="False"
+                        HeaderText="处理耗时(ms)"
+                        MappingName=" FDoTime" />
+                    <sync:GridTemplateColumn AllowFiltering="False" HeaderText="回复结果">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Background="{Binding FResultColor}"
+                                    Foreground="White"
+                                    Text="{Binding FResult}" />
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTextColumn
+                        AllowFiltering="False"
+                        HeaderText="回复提示"
+                        MappingName="FResultMark" />
+                </sync:SfDataGrid.Columns>
+            </sync:SfDataGrid>
+        </Border>
+    </Grid>
+</UserControl>

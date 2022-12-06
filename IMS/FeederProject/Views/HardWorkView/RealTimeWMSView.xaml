@@ -1,0 +1,314 @@
+﻿<UserControl
+    x:Class="FeederProject.Views.HardWorkView.RealTimeWMSView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:convert="clr-namespace:Infrastructure.Common;assembly=Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:FeederProject.Views.HardWorkView"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <convert:WmsColorToBrushConverter x:Key="WmsColorToBrushConverter" />
+        <Style x:Key="_textBlock" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+
+        </Style>
+        <Style x:Key="button" TargetType="Button">
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Background="{Binding BackGround}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            SnapsToDevicePixels="True">
+                            <UniformGrid Rows="4">
+                                <TextBlock Style="{StaticResource _textBlock}" Text="{Binding wms_code}" />
+                                <TextBlock Style="{StaticResource _textBlock}" Text="{Binding serial_num}" />
+
+                                <TextBlock Style="{StaticResource _textBlock}" Text="{Binding Station}" />
+                                <TextBlock Style="{StaticResource _textBlock}" Text="{Binding ProName}" />
+
+                            </UniformGrid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{Binding BackGround}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{Binding BackGround}" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="3*" />
+
+
+
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <TextBlock
+                Margin="0,10"
+                DockPanel.Dock="Left"
+                Foreground="{DynamicResource PrimaryHueDarkBrush}">
+                <UniformGrid Columns="2">
+                    <materialDesign:PackIcon
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Kind="ChevronDoubleDown" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Text="立体库" />
+                </UniformGrid>
+            </TextBlock>
+            <Button
+                Margin="200,0"
+                Command="{Binding RefreshCommand}"
+                CommandParameter="{Binding SelectedItem, ElementName=DrderDatagrid}"
+                DockPanel.Dock="Right"
+                Style="{StaticResource MaterialDesignPaperLightButton}">
+                <UniformGrid Columns="2">
+                    <materialDesign:PackIcon
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Foreground="Black"
+                        Kind="Refresh" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="刷新" />
+                </UniformGrid>
+            </Button>
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+
+            <UniformGrid Grid.Column="1" Columns="9">
+                <TextBlock Style="{StaticResource _textBlock}" Text="C1" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C2" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C3" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C4" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C5" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C6" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C7" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C8" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="C9" />
+            </UniformGrid>
+            <UniformGrid Grid.Row="1" Rows="3">
+                <TextBlock Style="{StaticResource _textBlock}" Text="R1" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="R2" />
+                <TextBlock Style="{StaticResource _textBlock}" Text="R3" />
+            </UniformGrid>
+            <ItemsControl
+                x:Name="itemControl"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5"
+                ItemsSource="{Binding WMSS}">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="9" Rows="3" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button
+                            Margin="2"
+                            BorderThickness="0"
+                            Command="{Binding DataContext.SelectedWMSCODECommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                            CommandParameter="{Binding}"
+                            IsEnabled="{Binding IsEnable}"
+                            Style="{StaticResource button}" />
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </Grid>
+        <!--<Viewbox Stretch="Fill">
+            <sync:SfDataGrid
+                AllowEditing="False"
+                AllowResizingColumns="False"
+                AutoGenerateColumns="False"
+                ColumnSizer="Star"
+                HeaderRowHeight="50"
+                ItemsSource="{Binding WMSS}"
+                RowHeight="150">
+
+                <sync:SfDataGrid.Columns>
+                    <sync:GridTextColumn
+                        Width="50"
+                        HeaderText="层"
+                        MappingName="Floor" />
+                    <sync:GridTemplateColumn HeaderText="列一">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+
+                                <Border
+                                    Background="{Binding Column01.IsInfo, Converter={StaticResource WmsColorToBrushConverter}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column01.Position, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列二">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column02, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列三">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column03, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列四">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column04, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列五">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column05, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列六">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column06, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列七">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column07, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列八">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column08, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                    <sync:GridTemplateColumn HeaderText="列九">
+                        <sync:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Background="Green"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Column09, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </sync:GridTemplateColumn.CellTemplate>
+                    </sync:GridTemplateColumn>
+                </sync:SfDataGrid.Columns>
+
+            </sync:SfDataGrid>
+        </Viewbox>-->
+
+
+
+    </Grid>
+
+
+</UserControl>

@@ -1,0 +1,3 @@
+----[ 2022-09-26 14:03:28 ERR] 1--1 {"ThreadId":1}
+----[ 2022-09-26 14:03:32 ERR] 刷新工单数据失败，原因：Object reference not set to an instance of an object. {"ThreadId":18}
+----[ 2022-09-26 14:05:37 ERR] 1--2 {"ThreadId":1}

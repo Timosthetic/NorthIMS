@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Views\FeederView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HardWorkView\RealTimeStationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HardWorkView\RealTimeVehiclesBingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HardWorkView\RealTimeWMSView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HardWorkView\SimulationDialogView\Simu_UPView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HardWorkView\SimulationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MainFeederView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RealTimeProductionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\FeederView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HardWorkView\RealTimeStationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HardWorkView\RealTimeVehiclesBingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HardWorkView\RealTimeWMSView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HardWorkView\SimulationDialogView\Simu_UPView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HardWorkView\SimulationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainFeederView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RealTimeProductionView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

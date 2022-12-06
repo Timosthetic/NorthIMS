@@ -1,0 +1,14 @@
+----[ 2022-10-19 08:14:27 ERR] 1--1 {"ThreadId":1}
+----[ 2022-10-19 08:14:28 ERR] 刷新工单数据失败，原因：Object reference not set to an instance of an object. {"ThreadId":19}
+----[ 2022-10-19 13:49:03 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":17}
+----[ 2022-10-19 13:49:04 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":16}
+----[ 2022-10-19 13:49:05 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":17}
+----[ 2022-10-19 13:49:06 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":18}
+----[ 2022-10-19 13:49:07 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":12}
+----[ 2022-10-19 13:49:08 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":18}
+----[ 2022-10-19 13:49:09 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":12}
+----[ 2022-10-19 13:49:10 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":5}
+----[ 2022-10-19 13:49:11 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":18}
+----[ 2022-10-19 13:49:12 ERR] 更新立库信息失败,原因:Unknown column 'ProMark' in 'field list' {"ThreadId":18}
+----[ 2022-10-19 14:36:45 ERR] 1--1 {"ThreadId":1}
+----[ 2022-10-19 15:34:01 ERR] 1--1 {"ThreadId":1}

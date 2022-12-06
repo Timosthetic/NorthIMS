@@ -1,0 +1,2 @@
+----[ 2022-10-21 16:27:16 ERR] 获取生产实时数据失败，原因:Unknown column 'StrStation' in 'field list' {"ThreadId":1}
+----[ 2022-10-21 16:32:17 ERR] 1--2 {"ThreadId":1}

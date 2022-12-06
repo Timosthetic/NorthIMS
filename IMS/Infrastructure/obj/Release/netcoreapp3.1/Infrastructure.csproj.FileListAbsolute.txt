@@ -1,0 +1,11 @@
+E:\立讯\UpperPosition\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.deps.json
+E:\立讯\UpperPosition\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.dll
+E:\立讯\UpperPosition\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.pdb
+E:\立讯\UpperPosition\Infrastructure\bin\Release\netcoreapp3.1\HslCommunication.dll
+E:\立讯\UpperPosition\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.csprojAssemblyReference.cache
+E:\立讯\UpperPosition\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.AssemblyInfoInputs.cache
+E:\立讯\UpperPosition\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.AssemblyInfo.cs
+E:\立讯\UpperPosition\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.csproj.CoreCompileInputs.cache
+E:\立讯\UpperPosition\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.csproj.CopyComplete
+E:\立讯\UpperPosition\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.dll
+E:\立讯\UpperPosition\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.pdb

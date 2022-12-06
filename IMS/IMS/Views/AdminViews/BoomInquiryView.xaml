@@ -1,0 +1,109 @@
+﻿<UserControl
+    x:Class="IMS.Views.AdminViews.BoomInquiryView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IMS.Views.AdminViews"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border
+                Margin="10"
+                Background="White"
+                BorderThickness="0"
+                CornerRadius="5">
+                <ToolBar>
+                    <Button Command="{Binding ExceteCommand}" Style="{StaticResource BtnBase}">
+                        <UniformGrid Columns="2">
+                            <materialDesign:PackIcon
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Kind="Refresh" />
+                            <TextBlock
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Text="刷新" />
+                        </UniformGrid>
+                    </Button>
+                </ToolBar>
+            </Border>
+            <Border
+                Grid.Row="1"
+                Margin="10,0"
+                Background="White"
+                BorderThickness="0"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="10" Foreground="{DynamicResource PrimaryHueDarkBrush}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Kind="ChevronDoubleDown" />
+                            <TextBlock VerticalAlignment="Center" Text="BOM信息" />
+                        </StackPanel>
+                    </TextBlock>
+                    <!--  冻结列 FrozenColumnCount="3"  -->
+                    <syncfusion:SfDataGrid
+                        Grid.Row="1"
+                        Margin="5,20,0,0"
+                        AutoGenerateColumns="False"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding ElementName=sfDataPager, Path=PagedSource}"
+                        Style="{StaticResource SimpleDataGridStyle}">
+                        <syncfusion:SfDataGrid.Columns>
+                            <syncfusion:GridTextColumn HeaderText="母件编码" MappingName="母件编码" />
+                            <syncfusion:GridTextColumn HeaderText="母件名称" MappingName="母件名称" />
+                            <syncfusion:GridTextColumn HeaderText="子件类别" MappingName="子件类别" />
+                            <syncfusion:GridTextColumn HeaderText="子件编码" MappingName="子件编码" />
+                            <syncfusion:GridTextColumn HeaderText="子件名称" MappingName="子件名称" />
+                            <syncfusion:GridTextColumn HeaderText="主辅标识" MappingName="主辅标识" />
+                            <syncfusion:GridTextColumn
+                                AllowFiltering="False"
+                                HeaderText="数量"
+                                MappingName="数量" />
+                            <syncfusion:GridTextColumn HeaderText="版本" MappingName="版本" />
+                        </syncfusion:SfDataGrid.Columns>
+                    </syncfusion:SfDataGrid>
+                    <syncfusion:SfDataPager
+                        x:Name="sfDataPager"
+                        Grid.Row="2"
+                        HorizontalAlignment="Right"
+                        AccentBackground="DodgerBlue"
+                        NumericButtonCount="5"
+                        PageSize="50"
+                        Source="{Binding BoomList}" />
+
+                </Grid>
+
+            </Border>
+        </Grid>
+
+    </Grid>
+
+</UserControl>

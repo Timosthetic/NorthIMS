@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>aw4sc-b4lel-001.ico</ApplicationIcon>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="aw4sc-b4lel-001.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.1" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="20.1.0.59" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

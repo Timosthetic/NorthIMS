@@ -1,0 +1,86 @@
+﻿<UserControl
+    x:Class="FeederProject.Views.HardWorkView.SimulationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:convert="clr-namespace:Infrastructure.Common;assembly=Infrastructure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:FeederProject.Views.HardWorkView"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <convert:WmsColorToBrushConverter x:Key="WmsColorToBrushConverter" />
+        <Style x:Key="_textBlock" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+
+        </Style>
+        <Style x:Key="button" TargetType="Button">
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Margin="20"
+                            Background="{Binding BackGround}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            SnapsToDevicePixels="True">
+                            <UniformGrid Rows="4">
+                                <TextBlock Style="{StaticResource _textBlock}" Text="{Binding Title}" />
+                                <TextBlock Style="{StaticResource _textBlock}" Text="{Binding InOut}" />
+                                <TextBlock Style="{StaticResource _textBlock}" Text="{Binding serialnum}" />
+                                <!--<TextBlock Text="ST1主"  Style="{StaticResource _textBlock}"/>
+                                <TextBlock Text="炮控系统" Style="{StaticResource _textBlock}"/>-->
+
+                            </UniformGrid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{Binding BackGround}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{Binding BackGround}" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <ItemsControl
+            x:Name="itemControl"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5"
+            ItemsSource="{Binding SimulationModels}">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="8" Rows="5" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button
+                        Margin="2"
+                        BorderThickness="0"
+                        Command="{Binding DataContext.SelectedWMSCODECommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource button}" />
+
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

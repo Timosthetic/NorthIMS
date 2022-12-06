@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\AdministratorView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\AlarmView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\BoomInquiryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\BoomUploadView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\DatenverfolgungView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\NewProjectView\NewProcessConfigView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\ProcessConfigView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\ProcessCraftView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\StaffMangeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\StationFlowLableNewView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\WorkerOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdminViews\WorkstationConfigView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DialogViews\AddProcessDialogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DialogViews\AUProcessConfigView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DialogViews\EditProcessDialogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DialogViews\PrcCraftTabView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DialogViews\WorkOrderDialogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\AdministratorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\AlarmView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\BoomInquiryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\BoomUploadView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\DatenverfolgungView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\NewProjectView\NewProcessConfigView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\ProcessConfigView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\ProcessCraftView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\StaffMangeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\StationFlowLableNewView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\WorkerOrderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdminViews\WorkstationConfigView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DialogViews\AddProcessDialogView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DialogViews\AUProcessConfigView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DialogViews\EditProcessDialogView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DialogViews\PrcCraftTabView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DialogViews\WorkOrderDialogView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

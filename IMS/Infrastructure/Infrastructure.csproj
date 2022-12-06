@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Fonts\iconfont.ttf" />
+    <None Remove="Assets\Images\flags\au.png" />
+    <None Remove="Assets\Images\Operation.png" />
+    <None Remove="C:\Users\kstopa\.nuget\packages\nlog.config\4.7.12\contentFiles\any\any\NLog.config" />
+    <None Remove="DialogHelper\Login\27c829c73efd9d919f2d2cb9c30a68c.png" />
+    <None Remove="DialogHelper\Login\login.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="CsvHelper" Version="12.2.1" />
+    <PackageReference Include="EPPlus" Version="6.0.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.25" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.1" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="20.1.0.59" />
+    <PackageReference Include="System.IO.Ports" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HslCommunication">
+      <HintPath>bin\Debug\netcoreapp3.1\HslCommunication.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\iconfont.ttf" />
+    <Resource Include="Assets\Images\flags\au.png" />
+    <Resource Include="Assets\Images\Operation.png" />
+    <Resource Include="DialogHelper\Login\27c829c73efd9d919f2d2cb9c30a68c.png" />
+    <Resource Include="DialogHelper\Login\login.png" />
+  </ItemGroup>
+
+</Project>

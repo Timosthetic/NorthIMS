@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Logo\aw4sc-b4lel-001.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Logo\login.png" />
+    <None Remove="Logo\logo1.png" />
+    <None Remove="Views\27c829c73efd9d919f2d2cb9c30a68c.png" />
+    <None Remove="Views\logo.png" />
+    <None Remove="Views\logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo\aw4sc-b4lel-001.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Logo\logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dragablz" Version="0.0.3.234" />
+    <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
+    <PackageReference Include="MaterialDesignColors" Version="2.0.6" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.RichTextBox.Wpf" Version="1.1.0" />
+    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="20.1.0.59" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="20.1.0.59" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.10.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FeederProject\FeederProject.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\LibExcel\LibExcel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="HslCommunication">
+      <HintPath>bin\Debug\netcoreapp3.1\HslCommunication.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo\login.png" />
+    <Resource Include="Views\27c829c73efd9d919f2d2cb9c30a68c.png" />
+    <Resource Include="Views\logo.png" />
+    <Resource Include="Views\logo1.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,51 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a1d9253c-4ec6-407d-ad8f-36a05ba48b1c": {
+      "ProjectGuid": "a1d9253c-4ec6-407d-ad8f-36a05ba48b1c",
+      "DisplayName": "IMS",
+      "ColorIndex": 0
+    },
+    "499aa327-e396-429d-a500-ede0f9b70691": {
+      "ProjectGuid": "499aa327-e396-429d-a500-ede0f9b70691",
+      "DisplayName": "Infrastructure",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "bda159c1-c430-4180-a42e-e7455d7ac433": {
+      "ProjectGuid": "bda159c1-c430-4180-a42e-e7455d7ac433",
+      "DisplayName": "WSCNavigationTree",
+      "ColorIndex": 2
+    },
+    "bfc09ff4-ba7c-47dd-b023-fad038b61cdd": {
+      "ProjectGuid": "bfc09ff4-ba7c-47dd-b023-fad038b61cdd",
+      "DisplayName": "RealTimeStatus",
+      "ColorIndex": 3
+    },
+    "404dbc03-be0b-4aee-a488-c3f47d1d147f": {
+      "ProjectGuid": "404dbc03-be0b-4aee-a488-c3f47d1d147f",
+      "DisplayName": "DataBase",
+      "ColorIndex": 4
+    },
+    "f08e3cd4-de28-43ad-97ed-3dfb9b46191a": {
+      "ProjectGuid": "f08e3cd4-de28-43ad-97ed-3dfb9b46191a",
+      "DisplayName": "RealTimeEvents",
+      "ColorIndex": 5
+    },
+    "be83e9bc-8bc0-4608-9104-8339e1d603bf": {
+      "ProjectGuid": "be83e9bc-8bc0-4608-9104-8339e1d603bf",
+      "DisplayName": "LeftMenu",
+      "ColorIndex": 6
+    },
+    "49e03694-41bd-4376-af11-5546a44badb5": {
+      "ProjectGuid": "49e03694-41bd-4376-af11-5546a44badb5",
+      "DisplayName": "DataBaseDB",
+      "ColorIndex": 7
+    }
+  },
+  "NextColorIndex": 8
+}

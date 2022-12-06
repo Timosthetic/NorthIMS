@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>DataVisualization</id>
+    <version>1.0.0</version>
+    <authors>DataVisualization</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Infrastructure" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Prism.DryIoc" version="8.1.97" exclude="Build,Analyzers" />
+        <dependency id="SqlSugarCore" version="5.1.1" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.SfChart.WPF" version="20.1.0.59" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.SfGrid.WPF" version="20.1.0.59" exclude="Build,Analyzers" />
+        <dependency id="Syncfusion.SfSkinManager.WPF" version="20.1.0.59" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/netcoreapp3.1/aw4sc-b4lel-001.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="E:\101104\101-104\NorthIMS\IMS\DataVisualization\bin\Debug\netcoreapp3.1\DataVisualization.runtimeconfig.json" target="lib\netcoreapp3.1\DataVisualization.runtimeconfig.json" />
+    <file src="E:\101104\101-104\NorthIMS\IMS\DataVisualization\bin\Debug\netcoreapp3.1\DataVisualization.dll" target="lib\netcoreapp3.1\DataVisualization.dll" />
+    <file src="E:\101104\101-104\NorthIMS\IMS\DataVisualization\aw4sc-b4lel-001.ico" target="content\aw4sc-b4lel-001.ico" />
+    <file src="E:\101104\101-104\NorthIMS\IMS\DataVisualization\aw4sc-b4lel-001.ico" target="contentFiles\any\netcoreapp3.1\aw4sc-b4lel-001.ico" />
+  </files>
+</package>

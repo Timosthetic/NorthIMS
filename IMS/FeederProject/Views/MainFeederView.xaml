@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="FeederProject.Views.MainFeederView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FeederProject.Views"
+             mc:Ignorable="d" 
+               xmlns:prism="http://prismlibrary.com/"
+               prism:ViewModelLocator.AutoWireViewModel="True"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+               xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoginLoadingCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+
+
+        <!--将listbox分组-->
+        <CollectionViewSource x:Key="NavigateMenu" Source="{Binding leftMenus}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="RootNode"/>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+
+
+
+        <Style
+            x:Key="btn1"
+            BasedOn="{StaticResource FlatButton}"
+            TargetType="ToggleButton">
+            <Setter Property="Background" Value="#303843" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Command" Value="{Binding OpenMenuCommand}" />
+            <Setter Property="Margin" Value="0,0,15,0" />
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="CommandParameter" Value="C" />
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="CommandParameter" Value="O" />
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding With}"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <UserControl>
+            <ListBox BorderThickness="0" Background="#303843" x:Name="_listOfMenuItem"  SelectionMode="Single" ItemsSource="{Binding Source={StaticResource NavigateMenu }}"  >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <prism:InvokeCommandAction  Command="{Binding NavigationRegionCommand}"  CommandParameter="{Binding SelectedItem,ElementName=_listOfMenuItem}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel    Orientation="Horizontal">
+                            <materialDesign:PackIcon  Margin="20,0,10,0" Foreground="White"  Kind="{Binding Icon}"/>
+                            <TextBlock FontSize="15" Foreground="White" Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.ContainerStyle>
+                            <Style TargetType="{x:Type GroupItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"  >
+                                                <Expander  Background="#303843" Foreground="White" >
+                                                    <Expander.Header>
+                                                        <TextBlock FontSize="15" Foreground="White" Text="{Binding Name}"/>
+                                                    </Expander.Header>
+                                                    <ItemsPresenter Grid.Row="0"/>
+                                                </Expander>
+                                            </ScrollViewer>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>
+                    </GroupStyle>
+                </ListBox.GroupStyle>
+            </ListBox>
+        </UserControl>
+
+        <Grid Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Border
+            Height="40"
+            Background="#303843"
+            BorderThickness="0">
+                    <StackPanel Margin="30 0" Orientation="Horizontal">
+                        <ToggleButton  Style="{DynamicResource btn1}" >
+                            <materialDesign:PackIcon Kind="{Binding Icon}" Height="20" Width="20" />
+                        </ToggleButton>
+                        <TextBlock
+                Margin="20,0"
+                VerticalAlignment="Center"
+                FontWeight="Bold"
+                Foreground="White"
+                Text="{Binding Title}" />
+                    </StackPanel>
+
+                </Border>
+                <ContentControl  Grid.Row="1"
+                     prism:RegionManager.RegionName="FeederContentRegion"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

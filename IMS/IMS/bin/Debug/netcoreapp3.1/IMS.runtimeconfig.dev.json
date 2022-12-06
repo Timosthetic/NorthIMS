@@ -1,0 +1,10 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\kstopa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\kstopa\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+      "D:\\FILE\\Syncfusion WPF\\WPF\\19.4.0.48\\ToolboxNuGetPackages"
+    ]
+  }
+}

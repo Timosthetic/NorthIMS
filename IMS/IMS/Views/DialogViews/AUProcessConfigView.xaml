@@ -1,0 +1,146 @@
+﻿<UserControl
+    x:Class="IMS.Views.DialogViews.AUProcessConfigView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IMS.Views.DialogViews"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    Width="650"
+    Height="400"
+    
+    prism:ViewModelLocator.AutoWireViewModel="True"
+       xmlns:enum="clr-namespace:Infrastructure.Dto.NewDto;assembly=Infrastructure"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ObjectDataProvider
+            x:Key="StationEnum"
+            MethodName="GetValues"
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="enum:EnumStation" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        
+        <Style x:Key="_textblock" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 20 0 0"/>
+        </Style>
+        <Style x:Key="_textbox" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="#F1F1F1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <materialDesign:Snackbar
+            x:Name="LoginSnakeBar"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Panel.ZIndex="1"
+            MessageQueue="{Binding BoundMessageQueue}" />
+
+        <DockPanel Background="{DynamicResource PrimaryHueDarkBrush}">
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <TextBlock
+                    Margin="20,0"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                    Text="工序配置" />
+                <TextBlock />
+            </StackPanel>
+            <Button
+                HorizontalAlignment="Right"
+                Background="{DynamicResource PrimaryHueDarkBrush}"
+                BorderThickness="0"
+                Command="{Binding CancelCommand}"
+                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                Style="{StaticResource MaterialDesignFlatLightBgButton}">
+                <materialDesign:PackIcon Kind="Close" />
+            </Button>
+        </DockPanel>
+        <Grid Grid.Row="1">
+
+           
+                <StackPanel Margin="10 20 10 10 ">
+                    <UniformGrid  Columns="4" Rows="2">
+                        <TextBlock Text="工序名称" Style="{StaticResource _textblock}"/>
+                    <TextBox Text="{Binding Pross.NodeName ,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Style="{StaticResource _textbox}"/>
+                        <TextBlock Text="工序代码" Style="{StaticResource _textblock}"/>
+                    <TextBox Text="{Binding Pross.Node}" IsReadOnly="True"  Style="{StaticResource _textbox}"/>
+                        <TextBlock Text="标准CT" Style="{StaticResource _textblock}" />
+                    <TextBox Text="{Binding Pross.CT}" Style="{StaticResource _textbox}"/>
+                        <TextBlock Text="min/分钟" HorizontalAlignment="Left"  VerticalAlignment="Bottom"/>
+                    </UniformGrid>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="7.5*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="工序描述" Style="{StaticResource _textblock}" />
+                    <TextBox Grid.ColumnSpan="2" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Pross.Description}" Style="{StaticResource _textbox}"/>
+                        <TextBlock Grid.Row="1" Text="SOP" Style="{StaticResource _textblock}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Pross.Esop,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Style="{StaticResource _textbox}"/>
+                        <Button Command="{Binding GetSopFileCommand}" Grid.Row="1" Grid.Column="2" Content="获取SOP路径"/>
+                        <TextBlock Text="组装工位" Grid.Row="2" Style="{StaticResource _textblock}" />
+                    <ComboBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Source={StaticResource StationEnum}}"    SelectedValue="{Binding Pross.Station}" />
+                    </Grid>
+                  
+                </StackPanel>
+               
+          
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label
+                VerticalAlignment="Center"
+                Content=""
+                FontSize="20"
+                Foreground="{StaticResource PrimaryHueDarkBrush}" />
+            <DockPanel Grid.Column="1">
+                <Button
+                    Margin="20,0,20,0"
+                    Background="{DynamicResource PrimaryHueMidBrush}"
+                    BorderThickness="0"
+                    Command="{Binding SaveCommand}"
+                    Cursor="Hand"
+                    DockPanel.Dock="Right"
+                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ContentSave" />
+                        <TextBlock Margin="5,0" Text="保存" />
+                    </StackPanel>
+
+                </Button>
+                <Button
+                    HorizontalAlignment="Right"
+                    Background="#F1F1F1"
+                    BorderThickness="0"
+                    Command="{Binding CancelCommand}"
+                    Content="关闭"
+                    Foreground="Black" />
+            </DockPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
