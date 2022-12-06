@@ -75,7 +75,7 @@ namespace IMS.ViewModels
         }
 
 
-        private string _Version="IMS_V1.1.2-优化上料与缓存库任务冲突";
+        private string _Version="IMS_V1.1.2-分配RGV任务前判断目标工位是否已经占位";
         /// <summary>
         /// 
         /// </summary>

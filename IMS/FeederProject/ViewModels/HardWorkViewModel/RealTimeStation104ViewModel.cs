@@ -492,6 +492,10 @@ namespace FeederProject.ViewModels.HardWorkViewModel
                     {
                         if (resTask.task_status == 0)
                         {
+                            if (!AppDbContext.Db.Queryable<Io_Vehicles_Bing>().Where(x => x.current_st == resTask.st_num).Any())
+                            {
+
+                          
                             PlcEventModel plcEventModel = new PlcEventModel();
                             plcEventModel.FStartTime1 = DateTime.Now;
                             plcEventModel.FEvent = dealWithPlcEvent.EventName;
@@ -515,8 +519,8 @@ namespace FeederProject.ViewModels.HardWorkViewModel
                           var MarkST=  AppDbContext.Db.Queryable<Io_Vehicles_Bing>().Where(x => x.wms_code == resTask.wms_code).First();
                             MarkST.current_st = resTask.st_num;
                             AppDbContext.Db.Updateable(MarkST).ExecuteCommandAsync();
-                            #endregion
-
+                                #endregion
+                            }
 
                         }
 
